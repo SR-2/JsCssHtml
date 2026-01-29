@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Parallax + Partículas</title>
+  <title>Partículas</title>
   <style>
     * {
       margin: 0;
@@ -64,18 +64,11 @@
   </div>
 
   <script>
-    // ===== PARALLAX =====
-    const scene = document.getElementById("scene");
-  
-
+   
     let mouseX = 0, mouseY = 0;
     let smoothX = 0, smoothY = 0;
 
-    scene.addEventListener("mousemove", e => {
-      const rect = scene.getBoundingClientRect();
-      mouseX = e.clientX - rect.width / 2;
-      mouseY = e.clientY - rect.height / 2;
-    });
+   
 
     // ===== PARTICLES =====
     const canvas = document.getElementById("particles");
