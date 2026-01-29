@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Animación con JS, CSS y HTML</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: #111;
+      overflow: hidden;
+    }
+
+    .box {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(45deg, #00f2ff, #ff00c8);
+      border-radius: 50%;
+      position: absolute;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="box" id="box"></div>
+
+  <script>
+    const box = document.getElementById("box");
+
+    //establecemos la posicion donde va comenzar la animacion
+    let x = 0;
+    let y = 0;
+
+    //establecemos la velocidad en la que se va mover
+    let vx = 3;
+    let vy = 3;
+
+    function animate() {
+      x += vx;
+      y += vy;
+ //verificamos los limites de la ventana para rebotar lado horizontal
+      if (x +80> window.innerWidth || x < 0) {
+        vx *= -1;
+        
+      }
+//verificamos los limites de la ventana para rebotar lado vertical
+      if (y + 80 > window.innerHeight || y < 0) {
+        vy *= -1;
+
+      }
+
+//actualizamos la posicion
+      box.style.transform = `translate(${x}px, ${y}px)`;
+      //llamamos a la funcion animate() de forma recursiva
+
+      //El método window.requestAnimationFrame informa al navegador que quieres realizar 
+      //una animación y solicita que el navegador programe el repintado de la ventana 
+      //para el próximo ciclo de animación.+El método acepta como argumento una función a la 
+      //que llamar antes de efectuar el repintado.
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+  </script>
+
+</body>
+</html>
